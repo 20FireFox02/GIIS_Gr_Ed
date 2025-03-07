@@ -13,7 +13,7 @@ import var_module as vm
 draw_click,checkout_click=False,False
 
 draw_menu()
-
+draw(lambda:True)
 while True:
     for event in pg.event.get():
 
@@ -28,8 +28,8 @@ while True:
                 else:
                     draw_click=False
                 if draw_click:
-                    lines.append(Line((event.pos[0]//PIXEL,event.pos[1]//PIXEL),\
-                                  (event.pos[0]//PIXEL,event.pos[1]//PIXEL),vm.alg_num))       
+                    lines.append(Line([[event.pos[0]//PIXEL,event.pos[1]//PIXEL],\
+                                  [event.pos[0]//PIXEL,event.pos[1]//PIXEL]],vm.alg_num))       
             else:
                 draw(lambda:True)
 
