@@ -3,10 +3,17 @@ from constant_module import BLACK,PIXEL
 from classes.algoritm_module import Algoritm
 
 class Wu_alg(Algoritm):
-    def draw_line(b_crd,e_crd,check):
-        x,y=b_crd
-        dx=e_crd[0]-x
-        dy=e_crd[1]-y
+
+    def __init__(self):
+        self.ret_step()
+
+    def ret_step(self):
+        self.step=0
+
+    def draw_line(self,points,check):
+        x,y=points[0]
+        dx=points[1][0]-x
+        dy=points[1][1]-y
         pg.draw.rect(display,BLACK,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
 
         if dy<0:
@@ -29,6 +36,8 @@ class Wu_alg(Algoritm):
             except:
                 gr=0
             while i<=dx*tx:
+                check()
+
                 y+=gr
                 b_y=int(y)
                 x+=tx
@@ -39,13 +48,15 @@ class Wu_alg(Algoritm):
                              (x*PIXEL,b_y*PIXEL,PIXEL,PIXEL))
                 pg.draw.rect(display,(col2,col2,col2),\
                              (x*PIXEL,(b_y+1)*PIXEL,PIXEL,PIXEL))
-                check()
+
         else:
             try:
                 gr=abs(dx/dy)*tx
             except:
                 gr=0
             while i<=dy*ty:
+                check()
+
                 x+=gr
                 b_x=int(x)
                 y+=ty
@@ -56,7 +67,6 @@ class Wu_alg(Algoritm):
                 pg.draw.rect(display,(col2,col2,col2),\
                              ((b_x+1)*PIXEL,y*PIXEL,PIXEL,PIXEL))
                 i+=1
-                check()
     """if dy<0:
         ty=-1
     else:

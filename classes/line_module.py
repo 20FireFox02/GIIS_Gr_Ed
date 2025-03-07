@@ -1,5 +1,7 @@
 class Line:
-    def __init__(self,b_crd,e_crd,draw_alg):
-        self.begin_crd=b_crd
-        self.end_crd=e_crd
+    def __init__(self,b_crd,draw_alg):
+        self.points=[b_crd]
         self.draw_alg=draw_alg
+    
+    def new_point(self,point):
+        self.points.append(point)

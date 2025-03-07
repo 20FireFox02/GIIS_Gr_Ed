@@ -3,10 +3,17 @@ from constant_module import BLACK,PIXEL
 from classes.algoritm_module import Algoritm
 
 class Brz_alg(Algoritm):
-    def draw_line(b_crd,e_crd,check):
-        x,y=b_crd
-        dx=e_crd[0]-x
-        dy=e_crd[1]-y
+
+    def __init__(self):
+        self.ret_step()
+
+    def ret_step(self):
+        self.step=0
+    
+    def draw_line(self,points,check):
+        x,y=points[0]
+        dx=points[1][0]-x
+        dy=points[1][1]-y
         i=1
         pg.draw.rect(display,BLACK,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
 
@@ -29,6 +36,8 @@ class Brz_alg(Algoritm):
             
         if e>dx*tx:
             while i<=dy*ty:
+                check()
+                
                 if e<=dx*tx:
                     x+=tx
                     e+=2*dy*ty
@@ -36,9 +45,11 @@ class Brz_alg(Algoritm):
                 e-=2*dx*tx
                 i+=1
                 pg.draw.rect(display,BLACK,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
-                check()
+
         else:
             while i<=dx*tx:
+                check()
+
                 if e>=0:
                     y+=ty
                     e-=2*dx*tx
@@ -46,7 +57,6 @@ class Brz_alg(Algoritm):
                 e+=2*dy*ty
                 i+=1
                 pg.draw.rect(display,BLACK,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
-                check()
 
 """    while i<=dx:
         if e>=0:

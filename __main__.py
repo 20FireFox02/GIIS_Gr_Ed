@@ -1,4 +1,4 @@
-from drawing.draw_module import lines,draw
+from drawing.draw_module import lines,drawing_alg,draw
 from sys import exit
 import time
 
@@ -24,28 +24,34 @@ while True:
         elif event.type==pg.MOUSEBUTTONDOWN:
             if not mouse_click(event.pos):
                 if 50<event.pos[0]<=1000:
-                    draw_click=not draw_click
+                    if not draw_click:
+                        lines.append(Line((event.pos[0]//PIXEL,event.pos[1]//PIXEL),vm.alg_num)) 
+                    def click():
+                        if drawing_alg[vm.alg_num].step<1:
+                            drawing_alg[vm.alg_num].step+=1
+                            lines[-1].new_point((event.pos[0]//PIXEL,event.pos[1]//PIXEL))
+                            return True
+                        else:
+                            drawing_alg[vm.alg_num].ret_step()
+                            return False
+                    draw_click=click()
                 else:
-                    draw_click=False
-                if draw_click:
-                    lines.append(Line((event.pos[0]//PIXEL,event.pos[1]//PIXEL),\
-                                  (event.pos[0]//PIXEL,event.pos[1]//PIXEL),vm.alg_num))       
+                    draw_click=False      
             else:
                 draw(lambda:True)
 
         elif event.type==pg.MOUSEMOTION:
             
             if draw_click:
-                if (abs(lines[-1].end_crd[0]-event.pos[0]//PIXEL)>=1 \
-                   or abs(lines[-1].end_crd[1]-event.pos[1]//PIXEL)>=1)\
+                if (abs(lines[-1].points[-1][0]-event.pos[0]//PIXEL)>=1 \
+                   or abs(lines[-1].points[-1][1]-event.pos[1]//PIXEL)>=1)\
                     and 10<event.pos[0]//PIXEL:
-                    lines[-1].end_crd=(event.pos[0]//PIXEL,event.pos[1]//PIXEL)
+                    lines[-1].points[-1]=(event.pos[0]//PIXEL,event.pos[1]//PIXEL)
                     
                     def sleep():
                         time.sleep(0.1)
                         pg.display.update()
                     if checkout_click:
-                        print("HERE")
                         draw(lambda:sleep())
                     else:
                         draw(lambda:True)
