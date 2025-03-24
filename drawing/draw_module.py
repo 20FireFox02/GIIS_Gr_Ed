@@ -2,23 +2,24 @@ from wind_init_module import display
 from constant_module import WHITE
 from drawing.draw_menu_module import draw_menu
 
-from frst_lines_alg.brezen_alg_module import *
-from frst_lines_alg.dig_dif_an_module import *
-from frst_lines_alg.wu_alg_module import *
+from frst_lines_alg.brezen_alg_module import Brz_alg
+from frst_lines_alg.dig_dif_an_module import Dda
+from frst_lines_alg.wu_alg_module import Wu_alg
 
-from sec_lines_alg.brezen_circle_alg_module import *
-from sec_lines_alg.ellipse_alg_module import *
-from sec_lines_alg.giperb_alg_module import *
-from sec_lines_alg.parab_alg_module import *
+from sec_lines_alg.brezen_circle_alg_module import Brz_circle_alg
+from sec_lines_alg.ellipse_alg_module import Ellipse_alg
+from sec_lines_alg.giperb_alg_module import Giperb_alg
+from sec_lines_alg.parab_alg_module import Parab_alg
 
 from curve_alg.hermit_inter_module import Herm_inter
 from curve_alg.bezier_forms_module import Bez_form
+from curve_alg.b_splayn_module import B_spl
 
 from classes.line_module import Line
-lines=[Line([[29,29],[29,48],[53,29],[79,29]],7)]
+lines=[]
 
-#Line([[0,5],[5,0],[6,6],[3,4]],7)
-drawing_alg=[Dda,Brz_alg,Wu_alg,Brz_circle_alg,Ellipse_alg,Giperb_alg,Parab_alg,Herm_inter,Bez_form()]
+#Line([[29,29],[29,48],[53,29],[79,29]],7)
+drawing_alg=[Dda,Brz_alg,Wu_alg,Brz_circle_alg,Ellipse_alg,Giperb_alg,Parab_alg,Herm_inter(),Bez_form(),B_spl()]
 """pg.font.init()
 smallfont = pg.font.SysFont('Corbel',25) 
 dda_t=smallfont.render('dda',True,BLACK)

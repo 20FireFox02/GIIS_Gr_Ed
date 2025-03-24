@@ -25,12 +25,13 @@ while True:
         elif event.type==pg.MOUSEBUTTONDOWN:
             if not mouse_click(event.pos):
                 if 50<event.pos[0]<=1000:
-                    if n<drawing_alg[vm.alg_num].point_num:
+                    if draw_click:lines[-1].points.append([event.pos[0]//PIXEL,event.pos[1]//PIXEL])
+                    else:lines.append(Line([[event.pos[0]//PIXEL,event.pos[1]//PIXEL],\
+                                    [event.pos[0]//PIXEL,event.pos[1]//PIXEL]],vm.alg_num))
+                    draw_click=drawing_alg[vm.alg_num].draw(draw_click)
+                    '''if n<drawing_alg[vm.alg_num].point_num:
                         draw_click=True
                         n+=1
-                        '''if n<3:
-                        draw_click=True
-                        n+=1'''
                     else:
                         draw_click=False
                         n=0
@@ -41,7 +42,7 @@ while True:
                         lines[-1].points.append([event.pos[0]//PIXEL,event.pos[1]//PIXEL])
                     else:
                         lines.append(Line([[event.pos[0]//PIXEL,event.pos[1]//PIXEL],\
-                                    [event.pos[0]//PIXEL,event.pos[1]//PIXEL]],vm.alg_num))       
+                                    [event.pos[0]//PIXEL,event.pos[1]//PIXEL]],vm.alg_num))'''       
             else:
                 draw(lambda:True)
 
