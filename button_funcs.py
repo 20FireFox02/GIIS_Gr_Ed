@@ -31,3 +31,15 @@ def gprbl_btn():
 def prbl_btn():
     var_module.menu_nums.pop()
     var_module.alg_num=6
+
+def hrmin_btn():
+    var_module.menu_nums.pop()
+    var_module.alg_num=7
+
+def bzfrm_btn():
+    var_module.menu_nums.pop()
+    var_module.alg_num=8
+
+def bspl_btn():
+    var_module.menu_nums.pop()
+    var_module.alg_num=9
