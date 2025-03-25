@@ -20,5 +20,5 @@ class Curve_Alg(Algoritm):
 class Line_Alg(Algoritm):
     def draw_line(points, check):
         pass
-    def draw(draw_click):
+    def draw(self,draw_click):
         return not draw_click

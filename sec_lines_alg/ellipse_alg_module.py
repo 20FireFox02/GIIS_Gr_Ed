@@ -1,9 +1,14 @@
 from wind_init_module import pg,display
 from constant_module import BLACK,PIXEL
-from classes.algoritm_module import Algoritm
+from classes.algoritm_module import Line_Alg
 
-class Ellipse_alg(Algoritm):
-    def draw_line(b_crd,e_crd,check):
+class Ellipse_alg(Line_Alg):
+
+    def draw(self, draw_click):
+        return super().draw(draw_click)
+    
+    def draw_line(self,points,check):
+        b_crd,e_crd=points
         a=e_crd[0]-b_crd[0]
         b=e_crd[1]-b_crd[1]
         lim=b_crd[1]

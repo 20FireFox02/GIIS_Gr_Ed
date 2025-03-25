@@ -1,4 +1,4 @@
-from drawing.draw_module import lines,draw,drawing_alg
+from drawing.draw_module import lines,DRAWING_ALG,draw
 from sys import exit
 import time
 
@@ -13,7 +13,7 @@ import var_module as vm
 draw_click,checkout_click=False,False
 
 draw_menu()
-#draw(lambda:True)
+
 n=0
 while True:
     for event in pg.event.get():
@@ -28,21 +28,7 @@ while True:
                     if draw_click:lines[-1].points.append([event.pos[0]//PIXEL,event.pos[1]//PIXEL])
                     else:lines.append(Line([[event.pos[0]//PIXEL,event.pos[1]//PIXEL],\
                                     [event.pos[0]//PIXEL,event.pos[1]//PIXEL]],vm.alg_num))
-                    draw_click=drawing_alg[vm.alg_num].draw(draw_click)
-                    '''if n<drawing_alg[vm.alg_num].point_num:
-                        draw_click=True
-                        n+=1
-                    else:
-                        draw_click=False
-                        n=0
-                else:
-                    draw_click=False
-                if draw_click:
-                    if n!=1:
-                        lines[-1].points.append([event.pos[0]//PIXEL,event.pos[1]//PIXEL])
-                    else:
-                        lines.append(Line([[event.pos[0]//PIXEL,event.pos[1]//PIXEL],\
-                                    [event.pos[0]//PIXEL,event.pos[1]//PIXEL]],vm.alg_num))'''       
+                    draw_click=DRAWING_ALG[vm.alg_num].draw(draw_click)      
             else:
                 draw(lambda:True)
 

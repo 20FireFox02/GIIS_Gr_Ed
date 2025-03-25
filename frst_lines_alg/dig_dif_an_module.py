@@ -1,15 +1,19 @@
 from wind_init_module import pg,display
 from constant_module import BLACK,PIXEL
-from classes.algoritm_module import Algoritm
+from classes.algoritm_module import Line_Alg
 
-class Dda(Algoritm):
-    def draw_line(b_crd,e_crd,check):
+class Dda(Line_Alg):
+
+    def draw(self, draw_click):
+        return super().draw(draw_click)
+    
+    def draw_line(self,points,check):
         
-        x,y=b_crd
-        lenght=max(abs(e_crd[0]-x),abs(e_crd[1]-y))
+        x,y=points[0]
+        lenght=max(abs(points[1][0]-x),abs(points[1][1]-y))
         try:
-            dx=(e_crd[0]-x)/lenght
-            dy=(e_crd[1]-y)/lenght
+            dx=(points[1][0]-x)/lenght
+            dy=(points[1][1]-y)/lenght
         except:
             dx,dy=0,0
         x+=0.5*round(dx,0)

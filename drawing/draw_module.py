@@ -13,13 +13,13 @@ from sec_lines_alg.parab_alg_module import Parab_alg
 
 from curve_alg.hermit_inter_module import Herm_inter
 from curve_alg.bezier_forms_module import Bez_form
-from curve_alg.b_splayn_module import B_spl
+from curve_alg.b_spline_module import B_spl
 
 from classes.line_module import Line
 lines=[]
 
 #Line([[29,29],[29,48],[53,29],[79,29]],7)
-drawing_alg=[Dda,Brz_alg,Wu_alg,Brz_circle_alg,Ellipse_alg,Giperb_alg,Parab_alg,Herm_inter(),Bez_form(),B_spl()]
+DRAWING_ALG=[Dda(),Brz_alg(),Wu_alg(),Brz_circle_alg(),Ellipse_alg(),Giperb_alg(),Parab_alg(),Herm_inter(),Bez_form(),B_spl()]
 """pg.font.init()
 smallfont = pg.font.SysFont('Corbel',25) 
 dda_t=smallfont.render('dda',True,BLACK)
@@ -34,18 +34,10 @@ def draw(check):
     draw_menu()
     
     for line in  lines[:-1]:
-        #draw_alg[n].draw_line(display,line[0],line[1],lambda:True)
-        #draw_frst_line_alg[n].draw_line(display,line[0],line[1],lambda:True)
-        #drawing_alg[line.draw_alg].draw_line(line.begin_crd,line.end_crd,lambda:True)
-        drawing_alg[line.draw_alg].draw_line(line.points,lambda:True)
-    #draw_alg[n].draw_line(display,lines[-1][0],lines[-1][1],check)
-    #drawing_alg[lines[-1].draw_alg].draw_line(lines[-1].begin_crd,lines[-1].end_crd,lambda:True)
-    drawing_alg[lines[-1].draw_alg].draw_line(lines[-1].points,check)
+        DRAWING_ALG[line.draw_alg].draw_line(line.points,lambda:True)
+    #DRAWING_ALG[lines[-1].draw_alg].draw_line(lines[-1].points,check)
     try:
-        #draw_alg[n].draw_line(display,lines[-1][0],lines[-1][1],check)
-        #draw_frst_line_alg[n].draw_line(display,lines[-1][0],lines[-1][1],check)
-        #drawing_alg[lines[-1].draw_alg].draw_line(lines[-1].begin_crd,lines[-1].end_crd,check)
-        drawing_alg[lines[-1].draw_alg].draw_line(lines[-1].points,check)
+        DRAWING_ALG[lines[-1].draw_alg].draw_line(lines[-1].points,check)
     except:
         print("Error last line drawing")
     draw_menu()
