@@ -4,9 +4,6 @@ from classes.algoritm_module import Line_Alg
 
 class Wu_alg(Line_Alg):
 
-    def draw(self, draw_click):
-        return super().draw(draw_click)
-    
     def draw_line(self,points,check):
         x,y=points[0]
         dx=points[1][0]-x

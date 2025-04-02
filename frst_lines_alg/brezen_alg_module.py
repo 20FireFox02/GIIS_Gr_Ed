@@ -4,10 +4,7 @@ from classes.algoritm_module import Line_Alg
 
 class Brz_alg(Line_Alg):
 
-    def draw(self, draw_click):
-        return super().draw(draw_click)
-    
-    def draw_line(self,points,check):
+    def draw_line(self,points,check,color=BLACK):
         x,y=points[0]
         dx=points[1][0]-x
         dy=points[1][1]-y
@@ -29,7 +26,7 @@ class Brz_alg(Line_Alg):
                 y+=ty
                 e-=2*dx*tx
                 i+=1
-                pg.draw.rect(display,BLACK,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
+                pg.draw.rect(display,color,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
                 check()
         else:
             while i<=dx*tx:
@@ -39,5 +36,6 @@ class Brz_alg(Line_Alg):
                 x+=tx
                 e+=2*dy*ty
                 i+=1
-                pg.draw.rect(display,BLACK,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
+                pg.draw.rect(display,color,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
                 check()
+        
