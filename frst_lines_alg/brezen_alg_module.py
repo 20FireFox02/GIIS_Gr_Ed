@@ -1,7 +1,8 @@
 from wind_init_module import pg,display
 from constant_module import BLACK,PIXEL
-from classes.algoritm_module import Algoritm
+from classes.algoritm_module import Line_Alg
 
+<<<<<<< HEAD
 class Brz_alg(Algoritm):
 
     def __init__(self):
@@ -11,6 +12,11 @@ class Brz_alg(Algoritm):
         self.step=0
     
     def draw_line(self,points,check):
+=======
+class Brz_alg(Line_Alg):
+
+    def draw_line(self,points,check,color=BLACK):
+>>>>>>> temp-branch
         x,y=points[0]
         dx=points[1][0]-x
         dy=points[1][1]-y
@@ -23,16 +29,6 @@ class Brz_alg(Algoritm):
         else:tx=1
         
         e=2*dy*ty-dx*tx
-
-        """def draw():
-            while i<=dy*ty:
-                if e<=0:
-                x+=PIXEL*tx
-                e+=2*dy*ty
-            y+=PIXEL*ty
-            e-=2*dx*tx
-            i+=PIXEL
-            pg.draw.rect(display,BLACK,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))"""
             
         if e>dx*tx:
             while i<=dy*ty:
@@ -44,8 +40,13 @@ class Brz_alg(Algoritm):
                 y+=ty
                 e-=2*dx*tx
                 i+=1
+<<<<<<< HEAD
                 pg.draw.rect(display,BLACK,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
 
+=======
+                pg.draw.rect(display,color,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
+                check()
+>>>>>>> temp-branch
         else:
             while i<=dx*tx:
                 check()
@@ -56,6 +57,7 @@ class Brz_alg(Algoritm):
                 x+=tx
                 e+=2*dy*ty
                 i+=1
+<<<<<<< HEAD
                 pg.draw.rect(display,BLACK,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
 
 """    while i<=dx:
@@ -66,3 +68,8 @@ class Brz_alg(Algoritm):
         e+=2*dy
         i+=PIXEL
         pg.draw.rect(display,BLACK,(x,y,PIXEL,PIXEL))"""
+=======
+                pg.draw.rect(display,color,(x*PIXEL,y*PIXEL,PIXEL,PIXEL))
+                check()
+        
+>>>>>>> temp-branch

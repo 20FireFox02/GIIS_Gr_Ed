@@ -1,7 +1,8 @@
 from wind_init_module import pg,display
 from constant_module import BLACK,PIXEL
-from classes.algoritm_module import Algoritm
+from classes.algoritm_module import Line_Alg
 
+<<<<<<< HEAD
 class Wu_alg(Algoritm):
 
     def __init__(self):
@@ -9,6 +10,9 @@ class Wu_alg(Algoritm):
 
     def ret_step(self):
         self.step=0
+=======
+class Wu_alg(Line_Alg):
+>>>>>>> temp-branch
 
     def draw_line(self,points,check):
         x,y=points[0]
@@ -67,6 +71,7 @@ class Wu_alg(Algoritm):
                 pg.draw.rect(display,(col2,col2,col2),\
                              ((b_x+1)*PIXEL,y*PIXEL,PIXEL,PIXEL))
                 i+=1
+<<<<<<< HEAD
     """if dy<0:
         ty=-1
     else:
@@ -130,3 +135,6 @@ cc((2,1),(6,3))"""
         e+=2*dy
         i+=PIXEL
         pg.draw.rect(display,BLACK,(x,y,PIXEL,PIXEL))"""
+=======
+                check()
+>>>>>>> temp-branch

@@ -1,7 +1,8 @@
 from wind_init_module import pg,display
 from constant_module import BLACK,PIXEL
-from classes.algoritm_module import Algoritm
+from classes.algoritm_module import Line_Alg
 
+<<<<<<< HEAD
 class Dda(Algoritm):
     
     def __init__(self):
@@ -9,6 +10,9 @@ class Dda(Algoritm):
 
     def ret_step(self):
         self.step=0
+=======
+class Dda(Line_Alg):
+>>>>>>> temp-branch
 
     def draw_line(self,points,check):
         
@@ -30,4 +34,9 @@ class Dda(Algoritm):
             pg.draw.rect(display,BLACK,(int(x)*PIXEL,int(y)*PIXEL,PIXEL,PIXEL))
             x+=dx
             y+=dy
+<<<<<<< HEAD
             i+=1
+=======
+            i+=1
+            check()
+>>>>>>> temp-branch
